@@ -13,7 +13,6 @@ const startGame = (event: Event) => {
     player1: player1Name.value,
     player2: player2Name.value,
   };
-  // Call the startGame function from the parent component
   props.startGame(data);
   formVisible.value = false;
 };
@@ -21,17 +20,41 @@ const startGame = (event: Event) => {
 
 <template>
   <div>
-    <form v-if="formVisible" @submit="startGame">
+    <form class="playerForm" v-if="formVisible" @submit="startGame">
         <h2>Spelare</h2>
-        <label for="player1">Spelare 1:</label>
-        <input v-model="player1Name" type="text" placeholder="Player 1" />
+        <div class="inputContainer">
+          <label for="player1">Spelare X:</label>
+          <input v-model="player1Name" type="text" />
+        </div>
         
-        <label for="player2">Spelare 2:</label>
-        <input v-model="player2Name" type="text" placeholder="Player 2" />
-        <button type="submit">Starta spelet</button>
+        <div class="inputContainer">
+          <label for="player2">Spelare O:</label>
+          <input v-model="player2Name" type="text" />
+        </div>
+        
+        <div class="buttonContainer">
+          <button type="submit">Starta spelet</button>
+        </div>
     </form>
   </div>
 </template>
 
 <style scoped>
+.playerForm {
+  display: grid;
+  gap: 20px;
+  padding: 100px;
+  margin: 100px;
+}
+
+.inputContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+}
 </style>
+
+
