@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, inject, onMounted, computed } from 'vue';
+import { ref, inject, onMounted, computed, getCurrentInstance } from 'vue';
 import Boardsquare from './Boardsquare.vue';
 
 const currentPlayer = ref(1);
@@ -67,10 +67,13 @@ const resetBoard = () => {
   draw.value = false;
 };
 
+const emit = getCurrentInstance()?.emit;
 const endGame = () => {
-  currentPlayer.value = 1;
-  resetBoard();
-};
+  if (emit) {
+    emit('end-game');
+  }
+}
+  
 
 onMounted(() => {
   currentPlayer.value = 1;
