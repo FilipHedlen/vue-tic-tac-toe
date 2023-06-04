@@ -18,8 +18,8 @@ const startGame = (data: { player1: string; player2: string }) => {
 };
 
 provide('playersData', playersData);
-provide('player1Score', player1Score.value);
-provide('player2Score', player2Score.value);
+provide('player1Score', player1Score);
+provide('player2Score', player2Score);
 provide('startGame', startGame);
 </script>
 

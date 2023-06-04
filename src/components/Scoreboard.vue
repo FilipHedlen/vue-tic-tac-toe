@@ -1,9 +1,19 @@
 <script setup lang="ts">
-import { watch, onMounted, ref } from 'vue';
+import { ref, onMounted, inject, watch } from 'vue';
 
-const props = defineProps(['player1', 'player2']);
-const player1Score = ref(0);
-const player2Score = ref(0);
+const props = defineProps(['player1Score', 'player2Score']);
+const player1Score = ref(props.player1Score);
+const player2Score = ref(props.player2Score);
+
+const playersData = inject<any>('playersData');
+
+watch(() => props.player1Score, (newScore) => {
+  player1Score.value = newScore;
+});
+
+watch(() => props.player2Score, (newScore) => {
+  player2Score.value = newScore;
+});
 
 onMounted(() => {
   const storedScores = localStorage.getItem('scores');
@@ -13,23 +23,16 @@ onMounted(() => {
     player2Score.value = p2Score;
   }
 });
-
-watch([player1Score, player2Score], () => {
-  const scores = {
-    player1Score: player1Score.value,
-    player2Score: player2Score.value,
-  };
-  localStorage.setItem('scores', JSON.stringify(scores));
-});
 </script>
 
 <template>
   <div>
     <h2>Resultattavla</h2>
-    <p>{{ props.player1 }}: {{ player1Score }}</p>
-    <p>{{ props.player2 }}: {{ player2Score }}</p>
+    <p>{{ playersData.player1 }}: {{ player1Score }}</p>
+    <p>{{ playersData.player2 }}: {{ player2Score }}</p>
   </div>
 </template>
+
 
 <style scoped>
 </style>

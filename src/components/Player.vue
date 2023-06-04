@@ -56,5 +56,3 @@ const startGame = (event: Event) => {
   margin-top: 20px;
 }
 </style>
-
-

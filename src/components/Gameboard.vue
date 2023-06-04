@@ -10,8 +10,8 @@ const currentPlayerName = computed(() => {
 const board = ref([['', '', ''], ['', '', ''], ['', '', '']]);
 const winner = ref('');
 const draw = ref(false);
-const player1Score = inject<any>('player1Score');
-const player2Score = inject<any>('player2Score');
+const player1Score = inject<any>('player1Score', null);
+const player2Score = inject<any>('player2Score', null);
 
 const winningCombinations = [
   [0, 1, 2], 
