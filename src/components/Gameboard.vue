@@ -73,7 +73,6 @@ const endGame = () => {
     emit('end-game');
   }
 }
-  
 
 onMounted(() => {
   currentPlayer.value = 1;
