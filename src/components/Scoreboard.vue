@@ -27,7 +27,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <h2>Resultattavla</h2>
+    <h2>Scoreboard</h2>
     <p>{{ playersData.player1 }}: {{ player1Score }}</p>
     <p>{{ playersData.player2 }}: {{ player2Score }}</p>
   </div>

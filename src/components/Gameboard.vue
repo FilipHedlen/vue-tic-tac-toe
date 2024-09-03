@@ -81,10 +81,10 @@ onMounted(() => {
 
 <template>
   <div>
-    <h1>Tre i rad</h1>
-    <h2 v-if="winner">Du vann {{ winner }}!</h2>
-    <h2 v-else-if="draw">Oavgjort!</h2>
-    <h3 v-else>Din tur {{ currentPlayerName }}!</h3>
+    <h1>Tic Tac Toe</h1>
+    <h2 v-if="winner">You won {{ winner }}!</h2>
+    <h2 v-else-if="draw">It's a draw!</h2>
+    <h3 v-else>Your turn, {{ currentPlayerName }}!</h3>
     <div class="board">
       <div v-for="(row, rowIndex) in board" :key="rowIndex" class="row">
         <div v-for="(square, colIndex) in row" :key="colIndex" class="square" @click="makeMove(rowIndex, colIndex)">
@@ -92,8 +92,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <button @click="resetBoard">Starta om spelet</button>
-    <button @click="endGame">Avsluta spel</button>
+    <button class="restart-btn" @click="resetBoard">Restart game</button>
+    <button class="end-btn" @click="endGame">End game</button>
   </div>
 </template>
 
@@ -118,5 +118,9 @@ onMounted(() => {
   cursor: pointer;
   width: 100px;
   height: 100px;
+}
+
+.restart-btn {
+  margin-right: 1rem;
 }
 </style>

@@ -33,10 +33,38 @@ provide('startGame', startGame);
 <template>
   <div>
     <Player :startGame="startGame" v-if="!gameStarted"></Player>
-    <Gameboard v-if="gameStarted" :playersData="playersData" :gameStarted="gameStarted" @end-game="handleEndGame" />
-    <Scoreboard v-if="gameStarted" :player1Score="player1Score" :player2Score="player2Score" />
+    <div v-if="gameStarted" class="game-container">
+      <Gameboard :playersData="playersData" :gameStarted="gameStarted" @end-game="handleEndGame" />
+      <Scoreboard :player1Score="player1Score" :player2Score="player2Score" />
+    </div>
   </div>
 </template>
 
 <style scoped>
+.game-container {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  gap: 2rem;
+  padding: 2rem;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+}
+
+.game-container > :first-child {
+  flex-grow: 1;
+}
+
+.game-container > :first-child::after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 100%;
+  background-color: #ddd;
+  margin-left: 2rem;
+}
+
+.scoreboard {
+  padding-left: 2rem;
+}
 </style>

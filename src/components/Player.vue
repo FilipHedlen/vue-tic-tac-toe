@@ -9,10 +9,17 @@ const formVisible = ref(true);
 
 const startGame = (event: Event) => {
   event.preventDefault();
+
+  if (player1Name.value.trim() === '' || player2Name.value.trim() === '') {
+    alert('Both players need to enter their names!');
+    return;
+  }
+
   const data = {
     player1: player1Name.value,
     player2: player2Name.value,
   };
+
   props.startGame(data);
   formVisible.value = false;
 };
@@ -53,6 +60,10 @@ const startGame = (event: Event) => {
 }
 
 .buttonContainer {
-  margin-top: 20px;
+  margin-top: 2rem;
+}
+
+.label {
+  margin-bottom: 1rem;
 }
 </style>
