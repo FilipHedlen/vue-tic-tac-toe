@@ -30,12 +30,12 @@ const startGame = (event: Event) => {
     <form class="playerForm" v-if="formVisible" @submit="startGame">
         <h2>Players</h2>
         <div class="inputContainer">
-          <label for="player1">Player X:</label>
+          <label class="player1" for="player1">Player X:</label>
           <input v-model="player1Name" type="text" />
         </div>
         
         <div class="inputContainer">
-          <label for="player2">Player O:</label>
+          <label class="player2" for="player2">Player O:</label>
           <input v-model="player2Name" type="text" />
         </div>
         
@@ -64,6 +64,10 @@ const startGame = (event: Event) => {
 
 .buttonContainer {
   margin-top: 1rem;
+}
+
+.player1, .player2 {
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
