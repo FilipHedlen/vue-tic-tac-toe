@@ -103,10 +103,13 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .row {
   display: flex;
+  width: 100%;
 }
 
 .square {
@@ -118,9 +121,33 @@ onMounted(() => {
   cursor: pointer;
   width: 100px;
   height: 100px;
+  flex-grow: 1;
+  max-width: 100px;
+  max-height: 100px;
+  box-sizing: border-box;
 }
 
-.restart-btn {
+.restart-btn,
+.end-btn {
+  width: 100px;
   margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .board {
+    max-width: 100%;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+
+  .restart-btn,
+  .end-btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
 }
 </style>

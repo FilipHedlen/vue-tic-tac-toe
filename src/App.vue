@@ -42,13 +42,15 @@ provide('startGame', startGame);
 
 <style scoped>
 .game-container {
-  display: flex; 
+  display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
   border: 2px solid #ccc;
   border-radius: 1rem;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .game-container > :first-child {
@@ -66,5 +68,43 @@ provide('startGame', startGame);
 
 .scoreboard {
   padding-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .game-container > :first-child::after {
+    content: none;
+  }
+
+  .scoreboard {
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+
+  .restart-btn,
+  .end-btn {
+    width: 100%;
+    margin-bottom: 0.5rem; 
+  }
 }
 </style>

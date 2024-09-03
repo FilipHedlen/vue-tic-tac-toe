@@ -28,19 +28,19 @@ const startGame = (event: Event) => {
 <template>
   <div>
     <form class="playerForm" v-if="formVisible" @submit="startGame">
-        <h2>Spelare</h2>
+        <h2>Players</h2>
         <div class="inputContainer">
-          <label for="player1">Spelare X:</label>
+          <label for="player1">Player X:</label>
           <input v-model="player1Name" type="text" />
         </div>
         
         <div class="inputContainer">
-          <label for="player2">Spelare O:</label>
+          <label for="player2">Player O:</label>
           <input v-model="player2Name" type="text" />
         </div>
         
         <div class="buttonContainer">
-          <button type="submit">Starta spelet</button>
+          <button type="submit">Start the game</button>
         </div>
     </form>
   </div>
@@ -50,8 +50,11 @@ const startGame = (event: Event) => {
 .playerForm {
   display: grid;
   gap: 20px;
-  padding: 100px;
-  margin: 100px;
+  padding: 2rem;
+  margin: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .inputContainer {
@@ -60,10 +63,17 @@ const startGame = (event: Event) => {
 }
 
 .buttonContainer {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
-.label {
-  margin-bottom: 1rem;
+@media (max-width: 768px) {
+  .playerForm {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .buttonContainer {
+    margin-top: 0.5rem;
+  }
 }
 </style>
